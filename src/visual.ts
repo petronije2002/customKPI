@@ -204,22 +204,27 @@ export class Visual implements IVisual {
 
         let boxHeight = Math.trunc((parameterH - firstHeight - 30)/3)
 
-        if(boxHeight<50){
-            boxHeight=50
+        if(boxHeight<20){
+            boxHeight=20
         }else if(boxHeight>100){
             boxHeight=100
         }
 
       
+        let sideLength = firstWidth/2
+
+
 
         let pointsUp= `${(firstWidth/2).toString()} , ${(firstHeight  +10).toString()}  ,${(firstWidth/2 -25 ).toString()},  ${(firstHeight  +60).toString()}, ${(firstWidth/2 + 25).toString()},  ${(firstHeight  +60).toString()}`
 
+        let pointsUp1= `${(firstWidth/2).toString()} , ${(firstHeight  +10).toString()}  ,${(firstWidth/2 -sideLength/2 ).toString()},  ${(firstHeight  + Math.trunc(sideLength*1.73/2)).toString()}, ${(firstWidth/2 + sideLength/2).toString()},  ${(firstHeight  +  Math.trunc(sideLength*1.73/2)).toString()}`
 
-        let pointsDown= `${(firstWidth/2).toString()}, ${(firstHeight  +120).toString()}  ,${(firstWidth/2 -25 ).toString()},  ${(firstHeight  +70).toString()}, ${(firstWidth/2 + 25).toString()},  ${(firstHeight  +70).toString()}`
+
+        let pointsDown= `${(firstWidth/2).toString()}, ${(firstHeight  + 2*Math.trunc(1.73*sideLength/2)).toString()}  ,${(firstWidth/2 -sideLength/2 ).toString()},  ${(firstHeight  + Math.trunc(sideLength*1.73/2) + 10 ).toString()}, ${(firstWidth/2 + sideLength/2).toString()},  ${(firstHeight  +Math.trunc(sideLength*1.73/2)+10).toString()}`
 
         
 
-        this.signal.attr("points",pointsUp).attr("fill",colorUpper).attr("stroke","black").attr('stroke-width',2)
+        this.signal.attr("points",pointsUp1).attr("fill",colorUpper)
         this.signal2.attr("points",pointsDown).attr("fill",colorDown).attr("visibility","visible")
        
         this.box1.attr('x', firstWidth).attr('y',firstHeight).attr("width", boxWidth.toString()).attr('height',boxHeight)

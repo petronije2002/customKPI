@@ -51,7 +51,7 @@ export class CircleSettings {
 
 export class PrevYearSetting {
   public fontColour: string = "white";
-  public fontSize: number = 36;
+  public fontSize: number = 18;
   public fontFamily: string = "Silka";
   public displayUnits: number = 1000000 ;
   public cornerRadius: number = 10;
@@ -70,7 +70,7 @@ export class PrevYearSetting {
 
 export class ThisYearSetting {
   public fontColour: string = "white";
-  public fontSize: number = 36;
+  public fontSize: number = 18;
   public fontFamily: string = "Silka";
   public displayUnits: number = 1000000 ;
   public cornerRadius: number = 5;
@@ -87,8 +87,8 @@ export class ThisYearSetting {
 } 
 
 export class TargetSetting {
-  public fontColour: string = "#191741";
-  public fontSize: number = 36;
+  public fontColour: string = "white";
+  public fontSize: number = 18;
   public fontFamily: string = "Silka"
   public displayUnits: number = 1000000 ;
   public cornerRadius: number = 5;
