@@ -1,0 +1,17 @@
+{
+    "version": "1.0.0",
+    "author": {"name":"Petar Jovanovic","email":"petar.jovanovic@pqr.nl"},
+    "resources": [
+        {
+            "resourceId": "rId0",
+            "sourceType": 5,
+            "file": "resources/customKPI9AAB3DB28C684880BE8BFF59E94A3EF0.pbiviz.json"
+        }
+    ],
+    "visual": {"name":"customKPI","displayName":"customKPI","guid":"customKPI9AAB3DB28C684880BE8BFF59E94A3EF0","visualClassName":"Visual","version":"1.0.0","description":"Custom KPI PQR visual","supportUrl":"www.google.com","gitHubUrl":""},
+    "metadata": {
+        "pbivizjson": {
+            "resourceId": "rId0"
+        }
+    }  
+}

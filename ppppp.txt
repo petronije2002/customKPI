@@ -1,0 +1,23 @@
+ {
+            "table": {
+                "rows": {
+                    "select": [
+                        {
+                            "for": {
+                                "in": "PrevYear"
+                            }
+                        },
+                        {
+                            "for": {
+                                "in": "ThisYear"
+                            }
+                        },
+                        {
+                            "for": {
+                                "in": "Target"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
