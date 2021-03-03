@@ -21,6 +21,7 @@ export declare class Visual implements IVisual {
     private textValue1;
     private textValue2;
     private textValue3;
+    private customTitle;
     private signal;
     private signal2;
     private box1;

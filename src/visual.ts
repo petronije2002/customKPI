@@ -69,6 +69,9 @@ export class Visual implements IVisual {
     private textValue2: Selection<SVGElement>;
     private textValue3: Selection<SVGElement>;
 
+    private customTitle: Selection<SVGElement>;
+
+
 
     private signal: Selection<SVGPolygonElement>
     private signal2: Selection<SVGPolygonElement>
@@ -125,6 +128,8 @@ export class Visual implements IVisual {
         this.textValue3 = this.container.append('text').classed('textBox', true)
 
 
+        this.customTitle = this.container.append('text').classed('textBox', true)
+
 
     }
 
@@ -147,6 +152,9 @@ export class Visual implements IVisual {
 
         console.log(dataView1)
 
+
+        
+
         
 
         let textHeightPrevYear = Math.trunc(textMeasurementService.measureSvgTextHeight( {text:"P",fontFamily: this.visualSettings.prevYear.fontFamily.toString(), fontSize: this.visualSettings.prevYear.fontSize.toString()}))
@@ -159,9 +167,20 @@ export class Visual implements IVisual {
         let iValueFormatterThisYear = valueFormatter.create({ value:  this.visualSettings.thisYear.displayUnits });
         let iValueFormatterTarget = valueFormatter.create({ value:  this.visualSettings.target.displayUnits });
 
+        let indexOfTarget, indexOfThisYear, indexOfPrevYear  = 10
 
+        console.log(dataView1.table.columns.forEach((el)=>{console.log("This is the element: ", Object.keys(el.roles)[0], el.index);
+        if (Object.keys(el.roles)[0]==='Target'){
+            indexOfTarget = el.index
 
+        }else if (Object.keys(el.roles)[0]==='ThisYear'){
+            indexOfThisYear = el.index
 
+        }else if (Object.keys(el.roles)[0]==='PrevYear'){
+            indexOfPrevYear = el.index
+        }
+    
+    }))
         // let formatedValue = iValueFormatterPrevYear.format(30000000)
         // console.log("Formated Value: ", formatedValue)
 
@@ -180,11 +199,11 @@ export class Visual implements IVisual {
 
         this.svg.attr('width', parameterW).attr('height', parameterH)
 
-        let target = dataView1.table.rows[0][0]
+        let target = dataView1.table.rows[0][indexOfTarget]
 
-        let thisYear = dataView1.table.rows[0][1]
+        let thisYear = dataView1.table.rows[0][indexOfThisYear]
 
-        let prevYear = dataView1.table.rows[0][2]
+        let prevYear = dataView1.table.rows[0][indexOfPrevYear]
 
         
        
@@ -215,7 +234,6 @@ export class Visual implements IVisual {
 
 
 
-        let pointsUp= `${(firstWidth/2).toString()} , ${(firstHeight  +10).toString()}  ,${(firstWidth/2 -25 ).toString()},  ${(firstHeight  +60).toString()}, ${(firstWidth/2 + 25).toString()},  ${(firstHeight  +60).toString()}`
 
         let pointsUp1= `${(firstWidth/2).toString()} , ${(firstHeight  +10).toString()}  ,${(firstWidth/2 -sideLength/2 ).toString()},  ${(firstHeight  + Math.trunc(sideLength*1.73/2)).toString()}, ${(firstWidth/2 + sideLength/2).toString()},  ${(firstHeight  +  Math.trunc(sideLength*1.73/2)).toString()}`
 
@@ -272,10 +290,19 @@ export class Visual implements IVisual {
         .style("font-family", this.visualSettings.thisYear.fontFamily)
 
 
-        this.textValue3.text(`Prev. Year:  ${iValueFormatterTarget.format(prevYear).toString()}` ).attr('x',firstWidth+10).attr('y',firstHeight + 2*boxHeight +2*10 + boxHeight/2 + textHeightThisYear/4)
+        this.textValue3.text(`Prev. Year:  ${iValueFormatterPrevYear.format(prevYear).toString()}` ).attr('x',firstWidth+10).attr('y',firstHeight + 2*boxHeight +2*10 + boxHeight/2 + textHeightPrevYear/4)
         .style("font-size", this.visualSettings.prevYear.fontSize)
         .style("fill", this.visualSettings.prevYear.fontColour)
         .style("font-family", this.visualSettings.prevYear.fontFamily)
+
+        let titleLength = textMeasurementService.measureSvgTextWidth( {text: this.visualSettings.target.customText,fontFamily: this.visualSettings.target.fontFamily.toString(), fontSize: this.visualSettings.target.fontSizeForTitle.toString()})
+
+        this.customTitle.text(this.visualSettings.target.customText)
+        .attr('x', (parameterW - titleLength)/2 )
+        .attr('y', firstHeight-5)
+        .style("fill", this.visualSettings.target.fontColourTitle)
+        .style("font-size", this.visualSettings.target.fontSizeForTitle)
+        .style("font-family", this.visualSettings.target.fontFamily)
         
 
 

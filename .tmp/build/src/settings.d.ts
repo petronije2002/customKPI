@@ -5,6 +5,11 @@ export declare class CircleSettings {
     fontSize: number;
     fontFamily: string;
 }
+export declare class CustomTitle {
+    customText: string;
+    fontColor: string;
+    fontSize: number;
+}
 export declare class PrevYearSetting {
     fontColour: string;
     fontSize: number;
@@ -28,6 +33,9 @@ export declare class TargetSetting {
     displayUnits: number;
     cornerRadius: number;
     backgroundColour: string;
+    customText: string;
+    fontSizeForTitle: number;
+    fontColourTitle: string;
 }
 export declare class CircleSettings2 {
     circleColor2: string;

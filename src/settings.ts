@@ -49,12 +49,19 @@ export class CircleSettings {
   // public CompanyFontSize: number = 20;
 } 
 
+export class CustomTitle{
+
+  public customText = ""
+  public fontColor = "white"
+  public fontSize = 16
+}
+
 export class PrevYearSetting {
   public fontColour: string = "white";
   public fontSize: number = 18;
   public fontFamily: string = "Silka";
   public displayUnits: number = 1000000 ;
-  public cornerRadius: number = 10;
+  public cornerRadius: number = 5;
   public backgroundColour: string = 'blue'
 
   // public AcknBackgroundColor: string = "red";
@@ -93,6 +100,9 @@ export class TargetSetting {
   public displayUnits: number = 1000000 ;
   public cornerRadius: number = 5;
   public backgroundColour: string = 'grey'
+  public customText: string = ''
+  public fontSizeForTitle: number = 18;
+  public fontColourTitle: string = "white"
 
   // public AcknBackgroundColor: string = "red";
   // public CriticalBackgroundColor: string = "orange";
@@ -114,6 +124,7 @@ export class CircleSettings2{
   public circleColor2: string = 'yellow'
   public circleThickness2: number = 3;
   public displayUnits: number = 1000000 ;
+
 }
 
 
@@ -123,6 +134,7 @@ export class VisualSettings extends DataViewObjectsParser {
       public thisYear: ThisYearSetting = new ThisYearSetting();
 
       public target: TargetSetting = new TargetSetting()
+
       }
 
 // export class dataPointSettings {

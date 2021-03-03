@@ -19,12 +19,12 @@
             "name": "PrevYear",
             "kind": "GroupingOrMeasure"
         }
-        
        
     ],
 
     "objects": {
 
+    
         "prevYear":{
 
             "displayName": "Previous Year Settings",
@@ -69,6 +69,17 @@
                     }
                 }
                 ,
+                "backgroundColour": {
+                    "displayName": "Background Colour",
+                    "description": "Background Colour",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
 
                 "fontFamily": {
                     "displayName": "Font family",
@@ -210,6 +221,17 @@
                     "type": {
                         "formatting": {
                             "labelDisplayUnits": true
+                        }
+                    }
+                },
+                "backgroundColour": {
+                    "displayName": "Background Colour",
+                    "description": "Background Colour",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
                         }
                     }
                 },
@@ -382,6 +404,37 @@
                         }
                     }
                 },
+
+                "customText":{
+
+                    "displayName": "Title Text",
+
+                    "type": {"text": true}
+                },
+
+                "fontSizeForTitle": {
+                    "displayName": "Font Size For Title" ,
+                    "type": {
+                        "formatting": {
+                            "fontSize": true
+                        }
+                    }
+                },
+
+                "fontColourTitle": {
+                    "displayName": "Font Colour For Title",
+                    "description": "Choose the colour for custom title",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+            
+
+                
 
                 "fontFamily": {
                     "displayName": "Font family",
