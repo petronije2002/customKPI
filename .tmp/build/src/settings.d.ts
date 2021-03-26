@@ -36,6 +36,7 @@ export declare class TargetSetting {
     customText: string;
     fontSizeForTitle: number;
     fontColourTitle: string;
+    reverseTarget: boolean;
 }
 export declare class CircleSettings2 {
     circleColor2: string;

@@ -155,8 +155,6 @@ export class Visual implements IVisual {
 
         
 
-        
-
         let textHeightPrevYear = Math.trunc(textMeasurementService.measureSvgTextHeight( {text:"P",fontFamily: this.visualSettings.prevYear.fontFamily.toString(), fontSize: this.visualSettings.prevYear.fontSize.toString()}))
         let textHeightThisYear = textMeasurementService.measureSvgTextHeight( {text:"P",fontFamily: this.visualSettings.thisYear.fontFamily.toString(), fontSize: this.visualSettings.thisYear.fontSize.toString()})
         let textHeightTarget = textMeasurementService.measureSvgTextHeight( {text:"T",fontFamily: this.visualSettings.target.fontFamily.toString(), fontSize: this.visualSettings.target.fontSize.toString()})
@@ -207,18 +205,68 @@ export class Visual implements IVisual {
 
         
        
-        if (thisYear<target){
+        // if (thisYear<target){
 
-            colorDown = "red"
-            colorUpper = "#191741"
-        }else if( thisYear >= target)
-        {
+        //     colorDown = "red"
+        //     colorUpper = "#191741"
 
-            colorDown = "#191741"
-            colorUpper = "green"
+                
+        // }else if( thisYear >= target)
+        // {
+
+
+        //     colorDown = "#191741"
+        //     colorUpper = "green"
+
+        // }
+
+
+
+        if (this.visualSettings.target.reverseTarget === true){
+
+
+            if (thisYear>target){
+
+                colorDown = "red"
+                colorUpper = "#191741"
+
+                    
+            }else if( thisYear <= target)
+            {
+
+
+                colorDown = "#191741"
+                colorUpper = "green"
+
+            }
+
+          
+        }else{
+
+            if (thisYear<target){
+
+                colorDown = "red"
+                colorUpper = "#191741"
+
+                    
+            }else if( thisYear >= target)
+            {
+
+
+                colorDown = "#191741"
+                colorUpper = "green"
+
+            }
+
+
+
 
 
         }
+
+
+
+
 
 
         let boxHeight = Math.trunc((parameterH - firstHeight - 30)/3)

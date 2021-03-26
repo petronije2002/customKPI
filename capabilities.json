@@ -412,6 +412,15 @@
                     "type": {"text": true}
                 },
 
+                "reverseTarget":{
+
+                    "displayName": "Reverse Target",
+                    
+
+                    "type": {"bool": true}
+                },
+                
+
                 "fontSizeForTitle": {
                     "displayName": "Font Size For Title" ,
                     "type": {

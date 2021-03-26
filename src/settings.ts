@@ -102,7 +102,8 @@ export class TargetSetting {
   public backgroundColour: string = 'grey'
   public customText: string = ''
   public fontSizeForTitle: number = 18;
-  public fontColourTitle: string = "white"
+  public fontColourTitle: string = "white";
+  public reverseTarget: boolean = false;
 
   // public AcknBackgroundColor: string = "red";
   // public CriticalBackgroundColor: string = "orange";
