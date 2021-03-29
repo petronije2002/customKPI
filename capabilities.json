@@ -80,6 +80,16 @@
                         }
                     }
                 },
+                "decimalPlacesPreviousYear": {
+                    "displayName": "Decimal Places",
+                    "description": "Set number of decimaa places",
+                    "type": {
+                        "numeric": true
+                    
+                        
+                    }
+                },
+            
 
                 "fontFamily": {
                     "displayName": "Font family",
@@ -242,6 +252,16 @@
                         "numeric": true
                     }
                 },
+                "decimalPlacesThisYear": {
+                    "displayName": "Decimal Places",
+                    "description": "Set number of decimaa places",
+                    "type": {
+                        "numeric": true
+                    
+                        
+                    }
+                },
+            
 
                 "fontFamily": {
                     "displayName": "Font family",
@@ -441,6 +461,17 @@
                         }
                     }
                 },
+
+                "decimalPlacesTarget": {
+                    "displayName": "Decimal Places",
+                    "description": "Set number of decimaa places",
+                    "type": {
+                        "numeric": true
+                    
+                        
+                    }
+                },
+            
             
 
                 

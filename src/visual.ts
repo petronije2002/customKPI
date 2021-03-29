@@ -161,9 +161,9 @@ export class Visual implements IVisual {
 
     
 
-        let iValueFormatterPrevYear = valueFormatter.create({ value:  this.visualSettings.prevYear.displayUnits });
-        let iValueFormatterThisYear = valueFormatter.create({ value:  this.visualSettings.thisYear.displayUnits });
-        let iValueFormatterTarget = valueFormatter.create({ value:  this.visualSettings.target.displayUnits });
+        let iValueFormatterPrevYear = valueFormatter.create({ value:  this.visualSettings.prevYear.displayUnits , precision: this.visualSettings.prevYear.decimalPlacesPreviousYear});
+        let iValueFormatterThisYear = valueFormatter.create({ value:  this.visualSettings.thisYear.displayUnits, precision: this.visualSettings.thisYear.decimalPlacesThisYear });
+        let iValueFormatterTarget = valueFormatter.create({ value:  this.visualSettings.target.displayUnits, precision: this.visualSettings.target.decimalPlacesTarget });
 
         let indexOfTarget, indexOfThisYear, indexOfPrevYear  = 10
 
