@@ -17,6 +17,7 @@ export declare class PrevYearSetting {
     displayUnits: number;
     cornerRadius: number;
     backgroundColour: string;
+    decimalPlacesPreviousYear: number;
 }
 export declare class ThisYearSetting {
     fontColour: string;
@@ -25,6 +26,7 @@ export declare class ThisYearSetting {
     displayUnits: number;
     cornerRadius: number;
     backgroundColour: string;
+    decimalPlacesThisYear: number;
 }
 export declare class TargetSetting {
     fontColour: string;
@@ -37,6 +39,7 @@ export declare class TargetSetting {
     fontSizeForTitle: number;
     fontColourTitle: string;
     reverseTarget: boolean;
+    decimalPlacesTarget: number;
 }
 export declare class CircleSettings2 {
     circleColor2: string;
