@@ -193,7 +193,7 @@ export class Visual implements IVisual {
 
         let boxWidth = (parameterW - firstWidth)*0.9
 
-        let firstHeight = Math.trunc(parameterH/8)
+        let firstHeight = Math.trunc(parameterH/6)
 
         this.svg.attr('width', parameterW).attr('height', parameterH)
 
@@ -322,23 +322,31 @@ export class Visual implements IVisual {
         // .style("font-size", this.visualSettings.thisYear.fontSize)
         // .style("fill", this.visualSettings.thisYear.fontColour)
         // .style("font-family", this.visualSettings.thisYear.fontFamily)
+
+
+        let tmp_target_width = iValueFormatterTarget.format(target).toString()
+        let tmp_thisYear_width = iValueFormatterTarget.format(thisYear).toString()
         
+        let tmp_prevYear_width = iValueFormatterTarget.format(prevYear).toString()
+
+        let textWidthTarget = textMeasurementService.measureSvgTextWidth( {text: tmp_target_width ,fontFamily: this.visualSettings.thisYear.fontFamily.toString(), fontSize: this.visualSettings.target.fontSize.toString()})
+        let textWidthThisYear = textMeasurementService.measureSvgTextWidth( {text: tmp_thisYear_width ,fontFamily: this.visualSettings.target.fontFamily.toString(), fontSize: this.visualSettings.thisYear.fontSize.toString()})
+        let textWidthPrevYear = textMeasurementService.measureSvgTextWidth( {text: tmp_prevYear_width ,fontFamily: this.visualSettings.target.fontFamily.toString(), fontSize: this.visualSettings.prevYear.fontSize.toString()})
 
 
 
-
-        this.textValue1.text(`Target: ${iValueFormatterTarget.format(target).toString()}` ).attr('x',firstWidth+10).attr('y',firstHeight + boxHeight/2 + textHeightTarget/4)
+        this.textValue1.text(`${iValueFormatterTarget.format(target).toString()}` ).attr('x',firstWidth + boxWidth/2 -textWidthTarget/2  ).attr('y',firstHeight + boxHeight/2 + textHeightTarget/4)
         .style("font-size", this.visualSettings.target.fontSize)
         .style("fill", this.visualSettings.target.fontColour)
         .style("font-family", this.visualSettings.target.fontFamily)
 
-        this.textValue2.text(`This Year: ${iValueFormatterThisYear.format(thisYear).toString()}` ).attr('x',firstWidth+10).attr('y',firstHeight + boxHeight +10 + boxHeight/2 + textHeightThisYear/4)
+        this.textValue2.text(`${iValueFormatterThisYear.format(thisYear).toString()}` ).attr('x',firstWidth+boxWidth/2 - textWidthThisYear/2).attr('y',firstHeight + boxHeight +10 + boxHeight/2 + textHeightThisYear/4)
         .style("font-size", this.visualSettings.thisYear.fontSize)
         .style("fill", this.visualSettings.thisYear.fontColour)
         .style("font-family", this.visualSettings.thisYear.fontFamily)
 
 
-        this.textValue3.text(`Prev. Year:  ${iValueFormatterPrevYear.format(prevYear).toString()}` ).attr('x',firstWidth+10).attr('y',firstHeight + 2*boxHeight +2*10 + boxHeight/2 + textHeightPrevYear/4)
+        this.textValue3.text(`${iValueFormatterPrevYear.format(prevYear).toString()}` ).attr('x',firstWidth+boxWidth/2 -textWidthPrevYear/2).attr('y',firstHeight + 2*boxHeight +2*10 + boxHeight/2 + textHeightPrevYear/4)
         .style("font-size", this.visualSettings.prevYear.fontSize)
         .style("fill", this.visualSettings.prevYear.fontColour)
         .style("font-family", this.visualSettings.prevYear.fontFamily)
